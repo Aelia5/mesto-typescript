@@ -1,0 +1,8 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  padding: 2.8% 200px 3.7%;
+  box-sizing: border-box;
+  }
