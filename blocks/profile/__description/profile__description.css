@@ -4,10 +4,25 @@
   margin: 0;
   padding: 16px 0 0;
   font-weight: 400;
-  font-size: calc( (100vw - 420px)/(1280 - 420) * (18 - 14) + 14px);
+  font-size: calc( (100vw - 880px)/(1280 - 880) * (18 - 14) + 14px);
   line-height: 1.22;
   color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media screen and (max-width: 880px) {
+  .profile__description {
+    padding-top: .5vw;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .profile__description {
+  padding-top: 7px;
+  text-align: center;
+
+}
 }

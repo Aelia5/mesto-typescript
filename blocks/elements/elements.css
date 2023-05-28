@@ -4,7 +4,20 @@
   width: 880px;
   padding: 0 0 67px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  column-gap: 17px;
-  row-gap: 17px;
+  gap: 17px;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 1080px) {
+  .elements {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .elements {
+  width: 282px;
+  padding-bottom: 48px;
+  gap: 20px;
+}
 }

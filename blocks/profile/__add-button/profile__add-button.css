@@ -1,5 +1,6 @@
 .profile__add-button {
   margin: 40px 0 0;
+  padding: 0;
   width: 150px;
   height: 50px;
   border: 2px solid #fff;
@@ -13,4 +14,19 @@
 
 .profile__add-button:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 900px) {
+  .profile__add-button {
+  width: 16.6vw;
+  height: 5.5vw;
+}
+}
+
+@media screen and (max-width: 670px) {
+  .profile__add-button {
+    width: 282px;
+    height: 50px;
+    margin-top: 32px;
+  }
 }

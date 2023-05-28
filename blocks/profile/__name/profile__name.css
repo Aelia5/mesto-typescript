@@ -3,11 +3,23 @@
   margin: 0;
   padding: 25.75px 18px 0 0;
   font-weight: 500;
-  font-size: calc( (100vw - 420px)/(1280 - 420) * (42 - 27) + 27px);
+  font-size: calc( (100vw - 880px)/(1280 - 880) * (42 - 27) + 27px);
   line-height: 1.14;
   color: #fff;
   max-width: 300px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  }
+
+  @media screen and (max-width: 880px) {
+    .profile__name {
+    font-size: 27px;
+    padding-top: 3vw;}
+  }
+
+  @media screen and (max-width: 426px) {
+    .profile__name {
+      padding: 22.25px 10px 0 28px;
+    }
   }

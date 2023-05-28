@@ -5,6 +5,7 @@
   background-image: url(../../../images/like.svg);
   background-size: contain;
   cursor: pointer;
+  transform: translateY(5px);
 }
 
 .element__like:hover {
