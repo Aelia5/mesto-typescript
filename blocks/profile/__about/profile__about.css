@@ -1,6 +1,6 @@
 .profile__about {
   display: block;
-  max-width: 336px;
+  max-width: 460px;
   margin: 0;
   padding: 0;
   font-weight: 400;
@@ -15,18 +15,21 @@
 @media screen and (max-width: 1024px) {
   .profile__about {
     font-size: calc( (100vw - 880px)/(1024 - 880) * (18 - 14) + 14px);
+    max-width: 40vw;
   }
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 740px) {
   .profile__about {
     padding-top: .5vw;
     font-size: 14px;
-  }
+    max-width: calc(65vw - 60px);
+    }
 }
 
 @media screen and (max-width: 426px) {
   .profile__about {
+  max-width: 282px;
   padding-top: 7px;
   text-align: center;
 
