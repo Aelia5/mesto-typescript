@@ -2,7 +2,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 25px 17px 25px 21px;
+  padding: 25px 17px 28px 21px;
   width: 100%;
   box-sizing: border-box;
 }
+
+ @media screen and (max-width: 426px) {
+    .element__info {
+      padding-bottom: 25.5px;
+    }
+  }
+

@@ -21,7 +21,7 @@
             <div>
               <h1 class="profile__name">Жак-Ив Кусто</h1>
               <button class="profile__edit-button"></button>
-              <p class="profile__description">Исследователь океана</p>
+              <p class="profile__about">Исследователь океана</p>
             </div>
           </div>
         <button class="profile__add-button"></button>
@@ -67,6 +67,19 @@
               <div class="element__info">
                 <p2 class="element__title">Камчатка</p2>
                 <button class="element__like"></button>
+            </div>
+        </section>
+        <section class="popup">
+            <div class="popup__container">
+              <button class="popup__close-button"></button>
+              <form class="popup__form">
+                <p2 class="popup__title">Редактировать профиль</p2>
+                <fieldset class="popup__user">
+                  <input type="text" class="popup__item" id="name" name="name">
+                  <input type="text" class="popup__item" id="about" name="about">
+                  <input type="submit" class="popup__submit-button" value="Сохранить">
+                </fieldset>
+              </form>
             </div>
         </section>
       </main>
