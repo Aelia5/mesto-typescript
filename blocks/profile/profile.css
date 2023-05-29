@@ -3,16 +3,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
-  width: 880px;
-  margin: 0 auto;
   padding: 36.25px 0 47.25px;
   box-sizing: border-box;
-  }
-
-@media screen and (max-width: 1080px) {
-    .profile {
-      width: 80%;
-    }
   }
 
 @media screen and (max-width: 670px) {
@@ -26,6 +18,5 @@
   .profile {
     padding-top: 38.25px;
     padding-bottom: 36px;
-    width: 282px;
-  }
+    }
 }
