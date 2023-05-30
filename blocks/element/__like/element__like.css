@@ -4,8 +4,10 @@
   border: none;
   background-image: url(../../../images/like.svg);
   background-size: contain;
+  background-color: #fff;
   cursor: pointer;
   transform: translateY(5px);
+  transition: opacity .5s linear;
 }
 
 .element__like:hover {

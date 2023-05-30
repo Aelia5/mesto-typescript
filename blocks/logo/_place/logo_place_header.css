@@ -1,19 +1,19 @@
-.header__logo {
+.logo_place_header {
   width: 142px;
   height: 33px;
-  object-fit: contain;
   margin-bottom: 41px;
+  background-image: url(../../../images/logo-white.svg);
   }
 
 @media screen and (max-width: 670px) {
-  .header__logo {
+  .logo_place_header {
     width: 21vw;
     height: 5vw;
   }
 }
 
 @media screen and (max-width: 426px) {
-  .header__logo {
+  .logo_place_header {
     margin-bottom: 31.6px;
     margin-left: calc((100% - 282px) / 2);
     width: 107.74px;
