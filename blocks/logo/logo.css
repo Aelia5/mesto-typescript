@@ -1,5 +1,25 @@
 .logo {
+  width: 142px;
+  height: 33px;
+  margin-bottom: 41px;
+  background-image: url(../../../images/logo-white.svg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  }
+
+@media screen and (max-width: 670px) {
+  .logo {
+    width: 21vw;
+    height: 5vw;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .logo {
+    margin-bottom: 31.6px;
+    margin-left: calc((100% - 282px) / 2);
+    width: 107.74px;
+    height: 24.4px;
+  }
 }
