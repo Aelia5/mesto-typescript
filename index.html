@@ -86,13 +86,11 @@
       <div class="popup">
         <div class="popup__container">
           <button class="popup__close-button" type="button"aria-label="Закрыть форму"></button>
-          <form class="popup__form">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <fieldset class="popup__user">
-              <input type="text" class="popup__item" id="name" name="name">
-              <input type="text" class="popup__item" id="about" name="about">
-              <input type="submit" class="popup__submit-button" value="Сохранить">
-            </fieldset>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form" name="userInfo">
+            <input type="text" class="popup__item popup__item_content_name" name="name" placeholder="Ваше имя">
+            <input type="text" class="popup__item popup__item_content_about" name="about" placeholder="Род занятий">
+            <button type="submit" class="popup__submit-button">Сохранить</button>
           </form>
         </div>
       </div>

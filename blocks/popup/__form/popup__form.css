@@ -3,9 +3,8 @@
   flex-direction: column;
   align-items: center;
   margin: 0;
-  padding: 34px 36px 37px;
+  padding: 32px 0 0;
   align-self: right;
-  width: 430px;
   background-color: #fff;
   border-radius: 10px;
   opacity: 1;
@@ -15,6 +14,6 @@
 @media screen and (max-width: 670px) {
   .popup__form {
     width: 282px;
-    padding: 25px 22px;
+    padding: 61px 22px 0;
   }
 }
