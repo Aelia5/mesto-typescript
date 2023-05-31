@@ -5,13 +5,13 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 1.21;
-  margin: 0;
+  margin: 0 0 54px; /*Так в макете, для соотетствия в PixelPerfect нужно 48px*/
   padding: 0;
 }
 
 @media screen and (max-width: 670px) {
   .popup__title {
     font-size: 18px;
-
-  }
+    margin-bottom: 75px;
+    }
 }

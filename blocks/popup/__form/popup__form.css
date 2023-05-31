@@ -3,17 +3,16 @@
   flex-direction: column;
   align-items: center;
   margin: 0;
-  padding: 32px 0 0;
-  align-self: right;
+  padding: 0;
   background-color: #fff;
-  border-radius: 10px;
-  opacity: 1;
   box-sizing: border-box;
+  width: 100%;
 }
 
 @media screen and (max-width: 670px) {
   .popup__form {
     width: 282px;
-    padding: 61px 22px 0;
+    padding-left: 22px;
+    padding-right: 22px;
   }
 }

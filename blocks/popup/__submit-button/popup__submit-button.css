@@ -1,12 +1,12 @@
 .popup__submit-button {
-  margin: 32px auto 0;
+  margin: 18px auto 0;
   padding: 0;
   width: 358px;
   height: 50px;
   background-color: #000;
   border: none;
   border-radius: 2px;
-  font-family: inherit;
+  font-family: 'Inter', 'Arial', sans-serif;
   color: #fff;
   font-size: 18px;
   line-height: 1.21;
@@ -24,5 +24,6 @@
     width: 238px;
     height: 46px;
     font-size: 14px;
+    margin-top: 15px;
   }
 }

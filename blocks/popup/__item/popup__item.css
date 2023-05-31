@@ -1,25 +1,15 @@
 .popup__item {
   width: 100%;
-  height: 30px;
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-  padding: 24px 0 13px;
-  margin-bottom: 20px;
+  padding: 0 0 13px;   /*Так в макете, для соотетствия в PixelPerfect нужно 0 0 10px*/
+  margin-bottom: 30px;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   color: #000;
-  font-family: inherit;
+  font-family: 'Inter', 'Arial', sans-serif;
 }
 
-.popup__item:focus {
-  outline: none;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
-}
 
-@media screen and (max-width: 670px) {
-  .popup__item {
-    padding-top: 23px;
-  }
-}
