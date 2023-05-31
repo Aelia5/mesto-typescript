@@ -3,12 +3,11 @@ cursor: pointer;
 width: 24px;
 height: 24px;
 border: 1px solid #fff;
-background-color: #000;
+background-color: transparent;
 background-image: url(../../../images/edit-button.svg);
 background-repeat: no-repeat;
-background-origin: content-box;
 background-position: center;
-background-size: contain;
+background-size: 10px 10px;
 box-sizing: border-box;
 margin-bottom: 10px;
 transition: opacity .5s linear;
@@ -29,5 +28,6 @@ align-self: end;
   .profile__edit-button {
   width: 18px;
   height: 18px;
+  background-size: 7.5px 7.5 px;
   }
 }
