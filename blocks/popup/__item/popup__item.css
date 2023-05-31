@@ -3,8 +3,8 @@
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-  padding: 0 0 13px;   /*Так в макете, для соотетствия в PixelPerfect нужно 0 0 10px*/
-  margin-bottom: 30px;
+  padding: 13px 0;
+  margin-bottom: 17px;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
