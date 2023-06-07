@@ -22,8 +22,16 @@
           <p class="profile__about">Исследователь океана</p>
           </section>
         <section class="elements" aria-label="Места">
-          <ul class="elements__list">
-            <li>
+          <template id="card">
+            <article class="element">
+              <img class="element__image" alt="Фотография">
+              <div class="element__info">
+                <h2 class="element__title"></h2>
+                <button class="element__like-button" type="button" aria-label="Лайк"></button>
+              </div>
+            </article>
+          </template>
+          <!--<li>
               <article class="element">
                 <img class="element__image" src="./images/baikal.jpg" alt="Байкал">
                 <div class="element__info">
@@ -76,7 +84,7 @@
                   <button class="element__like-button"  type="button" aria-label="Лайк"></button>
                 </div>
               </article>
-            </li>
+            </li>-->
           </ul>
         </section>
       </main>
