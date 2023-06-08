@@ -106,3 +106,14 @@ function saveNewCard (evt) {
   }
 
 placeForm.addEventListener('submit', saveNewCard);
+
+//Добавление и удаление лайков
+
+const likeButtons = document.querySelectorAll('.element__like-button');
+
+likeButtons.forEach(function(item) {
+  item.addEventListener('click', function() {
+    item.classList.toggle('element__like-button_active');
+  })
+})
+
