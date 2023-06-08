@@ -31,67 +31,12 @@
               </div>
             </article>
           </template>
-          <!--<li>
-              <article class="element">
-                <img class="element__image" src="./images/baikal.jpg" alt="Байкал">
-                <div class="element__info">
-                  <h2 class="element__title">Байкал</h2>
-                  <button class="element__like-button" type="button" aria-label="Лайк"></button>
-                </div>
-             </article>
-            </li>
-            <li>
-              <article class="element">
-                <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
-                <div class="element__info">
-                  <h2 class="element__title">Эльбрус</h2>
-                  <button class="element__like-button" type="button" aria-label="Лайк"></button>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article class="element">
-                <img class="element__image" src="./images/kungur.jpg" alt="Кунгурская пещера">
-                <div class="element__info">
-                  <h2 class="element__title">Кунгурская пещера</h2>
-                  <button class="element__like-button" type="button" aria-label="Лайк"></button>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article class="element">
-                <img class="element__image" src="./images/dombay.jpg" alt="Домбай">
-                <div class="element__info">
-                  <h2 class="element__title">Домбай</h2>
-                  <button class="element__like-button" type="button" aria-label="Лайк"></button>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article class="element">
-                  <img class="element__image" src="./images/kamchatka.jpg" alt="Камчатка">
-                  <div class="element__info">
-                    <h2 class="element__title">Камчатка</h2>
-                    <button class="element__like-button" type="button" aria-label="Лайк"></button>
-                  </div>
-              </article>
-            </li>
-            <li>
-              <article class="element">
-                <img class="element__image" src="./images/kosa.jpg" alt="Куршская коса">
-                <div class="element__info">
-                  <h2 class="element__title">Куршская коса</h2>
-                  <button class="element__like-button"  type="button" aria-label="Лайк"></button>
-                </div>
-              </article>
-            </li>-->
-          </ul>
-        </section>
+         </section>
       </main>
       <footer class="footer" aria-label="Подвал">
         <p class="footer__copyright" lang="en">&#169; 2023 Mesto Russia</p>
       </footer>
-      <div class="popup">
+      <div class="popup popup_content_profile">
         <div class="popup__container">
           <button class="popup__close-button" type="button" aria-label="Закрыть форму"></button>
           <h2 class="popup__title">Редактировать профиль</h2>
@@ -99,6 +44,17 @@
             <input type="text" class="popup__item popup__item_content_name" name="name" placeholder="Ваше имя">
             <input type="text" class="popup__item popup__item_content_about" name="about" placeholder="Род занятий">
             <button type="submit" class="popup__submit-button">Сохранить</button>
+          </form>
+        </div>
+      </div>
+      <div class="popup popup_content_card">
+        <div class="popup__container">
+          <button class="popup__close-button" type="button" aria-label="Закрыть форму"></button>
+          <h2 class="popup__title">Новое место</h2>
+          <form class="popup__form" name="userInfo">
+            <input type="text" class="popup__item popup__item_content_place" name="name" placeholder="Название" required>
+            <input type="text" class="popup__item popup__item_content_url" name="about" placeholder="Ссылка на картинку" reguired>
+            <button type="submit" class="popup__submit-button">Создать</button>
           </form>
         </div>
       </div>
