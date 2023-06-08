@@ -117,3 +117,12 @@ likeButtons.forEach(function(item) {
   })
 })
 
+//Удаление карточки
+
+const deleteButtons = document.querySelectorAll('.element__delete-button');
+
+deleteButtons.forEach(function(item) {
+  item.addEventListener('click', function() {
+    item.closest('.element').remove();
+    })
+})
