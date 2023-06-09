@@ -69,11 +69,21 @@ initialCards.forEach(function (item) {
 
 const likeButtons = document.querySelectorAll('.element__like-button');
 
+function addLike (btn) {
+  btn.classList.toggle('element__like-button_active');
+}
+
 likeButtons.forEach(function(item) {
+  item.addEventListener('click', function() {
+    addLike(item);
+  })
+})
+
+/*likeButtons.forEach(function(item) {
   item.addEventListener('click', function() {
     item.classList.toggle('element__like-button_active');
   })
-})
+})*/
 
 //Удаление карточки
 
@@ -92,14 +102,26 @@ const popupImage = document.querySelector('.popup_content_image');
 const popupImageUrl = popupImage.querySelector('.popup__image');
 const popupImageName = popupImage.querySelector('.popup__image-name');
 
+function openImage (im) {
+  popupImage.classList.add('popup_opened');
+  popupImageUrl.src = im.src;
+  popupImageName.textContent = im.nextElementSibling.textContent;
+  }
 
-images.forEach(function(item) {
+images.forEach (function(item) {
+  item.addEventListener ('click', function() {
+    openImage(item);
+  })
+})
+
+
+/*images.forEach(function(item) {
   item.addEventListener('click', function() {
   popupImage.classList.add('popup_opened');
   popupImageUrl.src = item.src;
   popupImageName.textContent = item.nextElementSibling.textContent;}
   )
-})
+})*/
 
 //Закрытие всех попапов
 
@@ -137,13 +159,12 @@ function saveNewCard (evt) {
     })
   let newCardLike = newCardElement.querySelector('.element__like-button');
   newCardLike.addEventListener('click', function() {
-      newCardLike.classList.toggle('element__like-button_active');
-  })
+    addLike(newCardLike);})
+
   let newCardImage = newCardElement.querySelector('.element__image');
   newCardImage.addEventListener('click', function() {
-    popupImage.classList.add('popup_opened');
-    popupImageUrl.src = newCardImage.src;
-    popupImageName.textContent = newCardImage.nextElementSibling.textContent;}
+    openImage(newCardImage);
+  }
     )
   cardsList.prepend(newCardElement);
   popupNewCard.classList.remove('popup_opened');
