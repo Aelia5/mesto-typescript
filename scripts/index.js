@@ -79,12 +79,6 @@ likeButtons.forEach(function(item) {
   })
 })
 
-/*likeButtons.forEach(function(item) {
-  item.addEventListener('click', function() {
-    item.classList.toggle('element__like-button_active');
-  })
-})*/
-
 //Удаление карточки
 
 const deleteButtons = document.querySelectorAll('.element__delete-button');
@@ -113,15 +107,6 @@ images.forEach (function(item) {
     openImage(item);
   })
 })
-
-
-/*images.forEach(function(item) {
-  item.addEventListener('click', function() {
-  popupImage.classList.add('popup_opened');
-  popupImageUrl.src = item.src;
-  popupImageName.textContent = item.nextElementSibling.textContent;}
-  )
-})*/
 
 //Закрытие всех попапов
 
