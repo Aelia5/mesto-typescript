@@ -77,8 +77,10 @@ let cardElement;
 
 function createCard () {
   cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-  cardElement.querySelector('.element__delete-button').addEventListener('click', function() {
-    cardElement.remove();
+
+  const cardTrash = cardElement.querySelector('.element__delete-button');
+  cardTrash.addEventListener('click', function() {
+    cardTrash.closest('.element').remove();
     });
 
   const cardLike = cardElement.querySelector('.element__like-button');
