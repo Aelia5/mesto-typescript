@@ -73,10 +73,13 @@ function openImage (im) {
 // Создание новой карточки
 
 const cardTemplate = document.querySelector('#card').content;
-let cardElement;
 
-function createCard () {
-  cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+function createCard(item) {
+  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+
+  cardElement.querySelector('.element__image').src = item.link;
+  cardElement.querySelector('.element__image').alt = item.name;
+  cardElement.querySelector('.element__title').textContent = item.name;
 
   const cardTrash = cardElement.querySelector('.element__delete-button');
   cardTrash.addEventListener('click', function() {
@@ -99,7 +102,7 @@ return cardElement;
 
 const cardsList = document.querySelector('.elements');
 
-const initialCards = [
+const cards = [
   {
     name: 'Байкал',
     link: 'https://aelia5.github.io/mesto/images/baikal.jpg'
@@ -126,16 +129,11 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach(function (item) {
-  createCard();
-  cardElement.querySelector('.element__image').src = item.link;
-  cardElement.querySelector('.element__image').alt = item.name;
-  cardElement.querySelector('.element__title').textContent = item.name;
+cards.forEach(function (item) {
+  const cardElement = createCard(item);
   cardsList.append(cardElement);
 }
 );
-
-
 
 //Добавление новой карточки
 
@@ -152,11 +150,9 @@ addButtonNewCard.addEventListener('click', function() {
 
 function saveNewCard (evt) {
   evt.preventDefault();
-  createCard();
-  cardElement.querySelector('.element__image').src = popupUrl.value;
-  cardElement.querySelector('.element__image').alt = popupPlace.value;
-  cardElement.querySelector('.element__title').textContent = popupPlace.value;
-  cardsList.prepend(cardElement);
+  cards.push({name: popupPlace.value, link: popupUrl.value});
+  const newCardElement = createCard(cards[cards.length - 1]);
+  cardsList.prepend(newCardElement);
   closePopup(popupNewCard);
   evt.target.reset();
   }
