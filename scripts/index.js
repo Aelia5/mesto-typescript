@@ -33,10 +33,21 @@ const profileForm = popupProfile.querySelector('.popup__form');
 function fillProfile () {
   popupName.value = profileName.textContent;
   popupAbout.value = profileAbout.textContent;
+  }
+
+function clearError (popup) {
+  popup.querySelectorAll ('.popup__item-error').forEach (function(item) {
+    item.classList.remove('popup__item-error_active');
+    })
+  popup.querySelectorAll ('.popup__item').forEach (function(item) {
+    item.classList.remove('popup__item_type_error');
+  })
 }
+
 
 editButtonProfile.addEventListener('click', function () {
   openPopup(popupProfile);
+  clearError(popupProfile);
   fillProfile();
 });
 
