@@ -10,7 +10,7 @@ function closePopup (popup) {
   popup.classList.remove('popup_opened');
 }
 
-//Закрытие всех попапов кликом по крестику
+//Закрытие всех попапов
 
 const closeButtons = document.querySelectorAll('.popup__close-button');
 
@@ -19,6 +19,26 @@ closeButtons.forEach(function(item) {
     closePopup(item.closest('.popup'));
   });
 });
+
+const popups = document.querySelectorAll('.popup');
+
+popups.forEach(function(popup) {
+  popup.addEventListener ('click', function(evt) {
+    console.log(evt);
+    if (evt.target.classList.contains('popup')) {
+    closePopup(popup);
+    }
+  })
+})
+
+
+window.addEventListener ('keydown', function (evt) {
+  console.log(evt.keyCode)
+  if (evt.keyCode === 27) {
+    const activePopup = document.querySelector('.popup_opened');
+    closePopup(activePopup);
+  }
+})
 
 //Редактирование профиля
 
@@ -38,14 +58,16 @@ function fillProfile () {
 function clearError (popup) {
   popup.querySelectorAll ('.popup__item-error').forEach (function(item) {
     item.classList.remove('popup__item-error_active');
+    item.textContent = '';
     })
   popup.querySelectorAll ('.popup__item').forEach (function(item) {
     item.classList.remove('popup__item_type_error');
   })
+  if (!popup.querySelector('.popup__submit-button').classList.contains('popup__submit-button_active')) {
+    popup.querySelector('.popup__submit-button').classList.add('popup__submit-button_active')
+  }
 }
-
-
-editButtonProfile.addEventListener('click', function () {
+  editButtonProfile.addEventListener('click', function () {
   openPopup(popupProfile);
   clearError(popupProfile);
   fillProfile();
@@ -58,9 +80,11 @@ function editProfile () {
 
 profileForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
+  if (profileForm.checkValidity()) {
   editProfile();
-  closePopup(popupProfile);
-});
+  closePopup(popupProfile);}
+})
+
 
 //Добавление и удаление лайков
 
@@ -161,11 +185,12 @@ addButtonNewCard.addEventListener('click', function() {
 
 function saveNewCard (evt) {
   evt.preventDefault();
+  if (placeForm.checkValidity()) {
   cards.push({name: popupPlace.value, link: popupUrl.value});
   const newCardElement = createCard(cards[cards.length - 1]);
   cardsList.prepend(newCardElement);
   closePopup(popupNewCard);
   evt.target.reset();
-  }
+  }}
 
 placeForm.addEventListener('submit', saveNewCard);
