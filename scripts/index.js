@@ -6,7 +6,7 @@ function closeByEsc (evt) {
     closePopup(activePopup);
     window.removeEventListener ('keydown', closeByEsc);
   }
-}
+};
 
 //Открытие всех попапов
 
@@ -20,8 +20,6 @@ function openPopup (popup) {
 function closePopup (popup) {
   popup.classList.remove('popup_opened');
 }
-
-//Закрытие всех попапов
 
 const closeButtons = document.querySelectorAll('.popup__close-button');
 
@@ -39,7 +37,7 @@ popups.forEach(function(popup) {
     closePopup(popup);
     }
   })
-})
+});
 
 
 
@@ -56,7 +54,7 @@ const profileForm = popupProfile.querySelector('.popup__form');
 function fillProfile () {
   popupName.value = profileName.textContent;
   popupAbout.value = profileAbout.textContent;
-  }
+  };
 
 function clearError (popup) {
   popup.querySelectorAll ('.popup__item-error').forEach (function(item) {
@@ -69,7 +67,8 @@ function clearError (popup) {
   if (!popup.querySelector('.popup__submit-button').classList.contains('popup__submit-button_active')) {
     popup.querySelector('.popup__submit-button').classList.add('popup__submit-button_active')
   }
-}
+};
+
   editButtonProfile.addEventListener('click', function () {
   openPopup(popupProfile);
   clearError(popupProfile);
