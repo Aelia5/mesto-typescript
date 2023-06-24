@@ -24,19 +24,17 @@ const popups = document.querySelectorAll('.popup');
 
 popups.forEach(function(popup) {
   popup.addEventListener ('click', function(evt) {
-    console.log(evt);
     if (evt.target.classList.contains('popup')) {
     closePopup(popup);
     }
   })
 })
 
-
 window.addEventListener ('keydown', function (evt) {
-  console.log(evt.keyCode)
-  if (evt.keyCode === 27) {
+  if (evt.key === 'Escape') {
     const activePopup = document.querySelector('.popup_opened');
-    closePopup(activePopup);
+    if (activePopup) {
+      closePopup(activePopup)};
   }
 })
 
