@@ -1,8 +1,19 @@
+//Закрытие по Esc
+
+function closeByEsc (evt) {
+  if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened');
+    closePopup(activePopup);
+    window.removeEventListener ('keydown', closeByEsc);
+  }
+}
+
 //Открытие всех попапов
 
 function openPopup (popup) {
   popup.classList.add('popup_opened');
-}
+  window.addEventListener ('keydown', closeByEsc);
+  }
 
 //Закрытие всех попапов
 
@@ -30,13 +41,7 @@ popups.forEach(function(popup) {
   })
 })
 
-window.addEventListener ('keydown', function (evt) {
-  if (evt.key === 'Escape') {
-    const activePopup = document.querySelector('.popup_opened');
-    if (activePopup) {
-      closePopup(activePopup)};
-  }
-})
+
 
 //Редактирование профиля
 
