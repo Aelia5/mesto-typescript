@@ -1,4 +1,4 @@
-import { Card } from "./Card.js";
+import { Card } from "./temp.js";
 import { FormValidator } from "./FormValidator.js";
 
 const popups = document.querySelectorAll(".popup");
