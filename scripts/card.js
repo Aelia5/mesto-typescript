@@ -1,9 +1,9 @@
 export class Card {
-  constructor(data, templateSelector, openPopup) {
+  constructor(data, templateSelector, openImage) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
-    this._openPopup = openPopup;
+    this._openImage = openImage;
   }
 
   _getTemplate() {
@@ -22,15 +22,6 @@ export class Card {
     btn.classList.toggle("element__like-button_active");
   }
 
-  _openImage() {
-    const popup = document.querySelector(".popup_content_image");
-    this._openPopup(popup);
-    const popupImage = popup.querySelector(".popup__image");
-    popupImage.src = this._link;
-    popupImage.alt = this._name;
-    popup.querySelector(".popup__image-name").textContent = this._name;
-  }
-
   _setEventListeners() {
     const cardImage = this._getElementImage();
     const cardLike = this._element.querySelector(".element__like-button");
@@ -41,7 +32,7 @@ export class Card {
     });
 
     cardImage.addEventListener("click", () => {
-      this._openImage(cardImage);
+      this._openImage(this);
     });
 
     cardTrash.addEventListener("click", () => {
