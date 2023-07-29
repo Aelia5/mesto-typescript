@@ -1,3 +1,12 @@
+const popupProfile = document.querySelector(".popup_content_profile");
+const editButtonProfile = document.querySelector(".profile__edit-button");
+const popupName = popupProfile.querySelector(".popup__item_content_name");
+const popupAbout = popupProfile.querySelector(".popup__item_content_about");
+const profileForm = popupProfile.querySelector(".popup__form");
+const addButtonNewCard = document.querySelector(".profile__add-button");
+const popupNewCard = document.querySelector(".popup_content_card");
+const placeForm = popupNewCard.querySelector(".popup__form");
+
 const cards = [
   {
     name: "Байкал",
@@ -34,4 +43,17 @@ const config = {
   inputErrorClass: "popup__input_type_error",
   errorActiveClass: "popup__item-error_active",
   errorSelectorTemplate: ".popup__item-error_content_",
+};
+
+export {
+  popupProfile,
+  editButtonProfile,
+  popupName,
+  popupAbout,
+  profileForm,
+  addButtonNewCard,
+  popupNewCard,
+  placeForm,
+  cards,
+  config,
 };

@@ -1,0 +1,23 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "class project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aelia5/mesto.git"
+  },
+  "author": "Olga Liubimova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aelia5/mesto/issues"
+  },
+  "homepage": "https://github.com/Aelia5/mesto#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
