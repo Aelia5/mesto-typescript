@@ -10,27 +10,27 @@ const placeForm = popupNewCard.querySelector(".popup__form");
 const cards = [
   {
     name: "Байкал",
-    link: "https://aelia5.github.io/mesto/images/baikal.jpg",
+    link: "https://aelia5.github.io/mesto/src/images/baikal.jpg",
   },
   {
     name: "Эльбрус",
-    link: "https://aelia5.github.io/mesto/images/elbrus.jpg",
+    link: "https://aelia5.github.io/mesto/src/images/elbrus.jpg",
   },
   {
     name: "Кунгурская пещера",
-    link: "https://aelia5.github.io/mesto/images/kungur.jpg",
+    link: "https://aelia5.github.io/mesto/src/images/kungur.jpg",
   },
   {
     name: "Домбай",
-    link: "https://aelia5.github.io/mesto/images/dombay.jpg",
+    link: "https://aelia5.github.io/mesto/src/images/dombay.jpg",
   },
   {
     name: "Камчатка",
-    link: "https://aelia5.github.io/mesto/images/kamchatka.jpg",
+    link: "https://aelia5.github.io/mesto/src/images/kamchatka.jpg",
   },
   {
     name: "Куршская коса",
-    link: "https://aelia5.github.io/mesto/images/kosa.jpg",
+    link: "https://aelia5.github.io/mesto/src/images/kosa.jpg",
   },
 ];
 
