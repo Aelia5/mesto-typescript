@@ -39,14 +39,18 @@ popupImage.setEventListeners();
 const popupFormProfile = new PopupWithForm(
   ".popup_content_profile",
   editProfile,
-  profileValidator
+  () => {
+    handleFormClose(profileValidator);
+  }
 );
 popupFormProfile.setEventListeners();
 
 const popupFormPlace = new PopupWithForm(
   ".popup_content_card",
   saveNewCard,
-  placeValidator
+  () => {
+    handleFormClose(placeValidator);
+  }
 );
 popupFormPlace.setEventListeners();
 
@@ -61,8 +65,7 @@ function editProfile(data) {
 
 function createNewCard(data) {
   const card = new Card(data, "#card", handleCardClick);
-  const cardElement = card.createCard();
-  return cardElement;
+  return card.createCard();
 }
 
 function saveNewCard(data) {
@@ -72,6 +75,11 @@ function saveNewCard(data) {
 
 function handleCardClick(card) {
   popupImage.open(card);
+}
+
+function handleFormClose(validator) {
+  validator.disableSubmitButton();
+  validator.removeValidationErrors();
 }
 
 editButtonProfile.addEventListener("click", function () {

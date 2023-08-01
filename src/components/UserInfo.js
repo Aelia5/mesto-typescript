@@ -4,11 +4,10 @@ export class UserInfo {
     this._aboutElement = document.querySelector(aboutSelector);
   }
   getUserInfo() {
-    const userInfo = {
+    return {
       name: this._nameElement.textContent,
       about: this._aboutElement.textContent,
     };
-    return userInfo;
   }
 
   setUserInfo({ nameValue, aboutValue }) {

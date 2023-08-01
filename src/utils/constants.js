@@ -35,7 +35,6 @@ const cards = [
 ];
 
 const config = {
-  formSelector: ".popup__form",
   inputSelector: ".popup__item",
   errorSelector: ".popup__item-error",
   submitButtonSelector: ".popup__submit-button",
