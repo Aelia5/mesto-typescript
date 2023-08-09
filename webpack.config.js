@@ -12,7 +12,6 @@ module.exports = (env) => {
       filename: production
         ? 'scripts/[name].[contenthash].js'
         : 'scripts/[name].js',
-      publicPath: '',
     },
     mode: 'development',
     devServer: {
@@ -46,7 +45,7 @@ module.exports = (env) => {
         {
           test: /\.css$/,
           use: [
-            MiniCssExtractPlugin.loader,
+            production ? MiniCssExtractPlugin.loader : 'style-loader',
             {
               loader: 'css-loader',
               options: { importLoaders: 1 },
@@ -61,7 +60,9 @@ module.exports = (env) => {
         template: './src/index.html',
       }),
       new CleanWebpackPlugin(),
-      new MiniCssExtractPlugin(),
+      new MiniCssExtractPlugin({
+        filename: 'styles/[name].[contenthash].css',
+      }),
     ],
     devtool: production ? false : 'eval-source-map',
   };
