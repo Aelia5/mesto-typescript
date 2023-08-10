@@ -6,6 +6,7 @@ import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
+import { Api } from "../components/Api.js";
 
 import {
   editButtonProfile,
@@ -38,7 +39,7 @@ popupImage.setEventListeners();
 
 const popupFormProfile = new PopupWithForm(
   ".popup_content_profile",
-  editProfile,
+  setProfile,
   () => {
     handleFormClose(profileValidator);
   }
@@ -59,7 +60,24 @@ const userInfo = new UserInfo({
   aboutSelector: ".profile__about",
 });
 
-function editProfile(data) {
+const api = new Api({
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-73",
+  headers: {
+    authorization: "0453871b-7ff0-422b-ba15-a21262966d2d",
+    "Content-type": "application/json",
+  },
+});
+
+api
+  .getProfileData()
+  .then((data) => {
+    setProfile(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+function setProfile(data) {
   userInfo.setUserInfo({ nameValue: data.name, aboutValue: data.about });
 }
 
