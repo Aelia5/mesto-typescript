@@ -58,6 +58,7 @@ popupFormPlace.setEventListeners();
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   aboutSelector: ".profile__about",
+  avatarSelector: ".profile__avatar",
 });
 
 const api = new Api({
@@ -72,6 +73,7 @@ api
   .getProfileData()
   .then((data) => {
     setProfile(data);
+    setAvatar(data);
   })
   .catch((err) => {
     console.log(err);
@@ -79,6 +81,10 @@ api
 
 function setProfile(data) {
   userInfo.setUserInfo({ nameValue: data.name, aboutValue: data.about });
+}
+
+function setAvatar(data) {
+  userInfo.setAvatar({ link: data.avatar });
 }
 
 function createNewCard(data) {
