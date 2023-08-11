@@ -15,7 +15,7 @@ import {
   profileForm,
   addButtonNewCard,
   placeForm,
-  cards,
+  //  cards,
   config,
 } from "../utils/constants.js";
 
@@ -25,14 +25,14 @@ profileValidator.enableValidation();
 const placeValidator = new FormValidator(config, placeForm);
 placeValidator.enableValidation();
 
-const cardsList = new Section(
-  {
-    items: cards,
-    renderer: createNewCard,
-  },
-  ".elements"
-);
-cardsList.renderItems();
+// const cardsList = new Section(
+//   {
+//     items: cards,
+//     renderer: createNewCard,
+//   },
+//   ".elements"
+// );
+// cardsList.renderItems();
 
 const popupImage = new PopupWithImage(".popup_content_image");
 popupImage.setEventListeners();
@@ -74,6 +74,22 @@ api
   .then((data) => {
     setProfile(data);
     setAvatar(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+api
+  .getInitialCards()
+  .then((data) => {
+    const cardsList = new Section(
+      {
+        items: data,
+        renderer: createNewCard,
+      },
+      ".elements"
+    );
+    cardsList.renderItems();
   })
   .catch((err) => {
     console.log(err);
