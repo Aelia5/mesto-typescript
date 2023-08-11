@@ -18,6 +18,8 @@ import {
   config,
 } from "../utils/constants.js";
 
+let cardsList;
+
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-73",
   headers: {
@@ -39,7 +41,7 @@ api
 api
   .getInitialCards()
   .then((data) => {
-    const cardsList = new Section(
+    cardsList = new Section(
       {
         items: data,
         renderer: createNewCard,
@@ -91,9 +93,14 @@ function setProfile(data) {
 }
 
 function editProfile(newData) {
-  api.editProfileData(newData).then((data) => {
-    setProfile(data);
-  });
+  api
+    .editProfileData(newData)
+    .then((data) => {
+      setProfile(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function setAvatar(data) {
@@ -105,9 +112,19 @@ function createNewCard(data) {
   return card.createCard();
 }
 
-function saveNewCard(data) {
-  const newCardElement = createNewCard({ name: data.place, link: data.url });
-  cardsList.addItem(newCardElement, "before");
+function saveNewCard(newData) {
+  api
+    .postNewCard(newData)
+    .then((data) => {
+      const newCardElement = createNewCard({
+        name: data.name,
+        link: data.link,
+      });
+      cardsList.addItem(newCardElement, "before");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function handleCardClick(card) {

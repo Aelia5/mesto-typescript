@@ -44,4 +44,22 @@ export class Api {
       }
     });
   }
+
+  postNewCard(newData) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: newData.place,
+        link: newData.url,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        console.log(res.json);
+        return res.json();
+      } else {
+        return Promise.reject(`Ошибка: ${res.status}`);
+      }
+    });
+  }
 }
