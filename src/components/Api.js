@@ -27,4 +27,21 @@ export class Api {
       }
     });
   }
+
+  editProfileData(newData) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: newData.name,
+        about: newData.about,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Ошибка: ${res.status}`);
+      }
+    });
+  }
 }

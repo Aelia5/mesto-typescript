@@ -15,51 +15,8 @@ import {
   profileForm,
   addButtonNewCard,
   placeForm,
-  //  cards,
   config,
 } from "../utils/constants.js";
-
-const profileValidator = new FormValidator(config, profileForm);
-profileValidator.enableValidation();
-
-const placeValidator = new FormValidator(config, placeForm);
-placeValidator.enableValidation();
-
-// const cardsList = new Section(
-//   {
-//     items: cards,
-//     renderer: createNewCard,
-//   },
-//   ".elements"
-// );
-// cardsList.renderItems();
-
-const popupImage = new PopupWithImage(".popup_content_image");
-popupImage.setEventListeners();
-
-const popupFormProfile = new PopupWithForm(
-  ".popup_content_profile",
-  setProfile,
-  () => {
-    handleFormClose(profileValidator);
-  }
-);
-popupFormProfile.setEventListeners();
-
-const popupFormPlace = new PopupWithForm(
-  ".popup_content_card",
-  saveNewCard,
-  () => {
-    handleFormClose(placeValidator);
-  }
-);
-popupFormPlace.setEventListeners();
-
-const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
-  aboutSelector: ".profile__about",
-  avatarSelector: ".profile__avatar",
-});
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-73",
@@ -95,8 +52,48 @@ api
     console.log(err);
   });
 
+const profileValidator = new FormValidator(config, profileForm);
+profileValidator.enableValidation();
+
+const placeValidator = new FormValidator(config, placeForm);
+placeValidator.enableValidation();
+
+const popupImage = new PopupWithImage(".popup_content_image");
+popupImage.setEventListeners();
+
+const popupFormProfile = new PopupWithForm(
+  ".popup_content_profile",
+  editProfile,
+  () => {
+    handleFormClose(profileValidator);
+  }
+);
+popupFormProfile.setEventListeners();
+
+const popupFormPlace = new PopupWithForm(
+  ".popup_content_card",
+
+  saveNewCard,
+  () => {
+    handleFormClose(placeValidator);
+  }
+);
+popupFormPlace.setEventListeners();
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  aboutSelector: ".profile__about",
+  avatarSelector: ".profile__avatar",
+});
+
 function setProfile(data) {
   userInfo.setUserInfo({ nameValue: data.name, aboutValue: data.about });
+}
+
+function editProfile(newData) {
+  api.editProfileData(newData).then((data) => {
+    setProfile(data);
+  });
 }
 
 function setAvatar(data) {
