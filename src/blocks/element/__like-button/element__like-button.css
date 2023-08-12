@@ -10,7 +10,7 @@
   cursor: pointer;
   transform: translateY(5px);
   transition: opacity .5s linear;
-}
+  }
 
 .element__like-button:hover {
   opacity: .5;
