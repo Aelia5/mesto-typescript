@@ -5,6 +5,7 @@ import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupConfirmation } from "../components/PopupConfirmation.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Api } from "../components/Api.js";
 
@@ -82,6 +83,12 @@ const popupFormPlace = new PopupWithForm(
 );
 popupFormPlace.setEventListeners();
 
+const popupConfirmation = new PopupConfirmation(
+  ".popup_content_confirmation",
+  handleConfirmationSubmit
+);
+popupConfirmation.setEventListeners();
+
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
   aboutSelector: ".profile__about",
@@ -108,7 +115,7 @@ function setAvatar(data) {
 }
 
 function createNewCard(data) {
-  const card = new Card(data, "#card", handleCardClick);
+  const card = new Card(data, "#card", handleCardClick, handleTrashClick);
   return card.createCard();
 }
 
@@ -116,12 +123,12 @@ function saveNewCard(newData) {
   api
     .postNewCard(newData)
     .then((data) => {
-      const newCardElement = createNewCard({
-        name: data.name,
-        link: data.link,
-      });
+      return createNewCard(data);
+    })
+    .then((newCardElement) => {
       cardsList.addItem(newCardElement, "before");
     })
+
     .catch((err) => {
       console.log(err);
     });
@@ -129,6 +136,15 @@ function saveNewCard(newData) {
 
 function handleCardClick(card) {
   popupImage.open(card);
+}
+
+function handleTrashClick(card) {
+  popupConfirmation.open(card);
+}
+
+function handleConfirmationSubmit() {
+  api.deleteCard(popupConfirmation.cardToDelete.id);
+  popupConfirmation.cardToDelete.removeCard();
 }
 
 function handleFormClose(validator) {
