@@ -20,6 +20,7 @@ import {
 } from "../utils/constants.js";
 
 let cardsList;
+let user;
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-73",
@@ -32,8 +33,9 @@ const api = new Api({
 api
   .getProfileData()
   .then((data) => {
-    setProfile(data);
-    setAvatar(data);
+    user = data;
+    setProfile(user);
+    setAvatar(user);
   })
   .catch((err) => {
     console.log(err);
@@ -115,7 +117,14 @@ function setAvatar(data) {
 }
 
 function createNewCard(data) {
-  const card = new Card(data, "#card", handleCardClick, handleTrashClick);
+  const card = new Card(
+    data,
+    user,
+    "#card",
+    handleCardClick,
+    handleTrashClick,
+    handleToggleLike
+  );
   return card.createCard();
 }
 
@@ -146,6 +155,41 @@ function handleConfirmationSubmit() {
   api.deleteCard(popupConfirmation.cardToDelete.id);
   popupConfirmation.cardToDelete.removeCard();
 }
+
+function handleToggleLike(card) {
+  api
+    .toggleLike(card, card.isLiked)
+    .then((data) => {
+      card.updateLikes(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+// function handleToggleLike(card) {
+//   if (!card.isLiked) {
+//     api
+//       .putLike(card)
+//       .then((data) => {
+//         card.updateLikes(data);
+//         card.isLiked = true;
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   } else {
+//     api
+//       .deleteLike(card)
+//       .then((data) => {
+//         card.updateLikes(data);
+//         card.isLiked = false;
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   }
+// }
 
 function handleFormClose(validator) {
   validator.disableSubmitButton();

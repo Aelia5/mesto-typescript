@@ -1,17 +1,22 @@
 export class Card {
   constructor(
-    { name, link, _id, owner },
+    { likes, name, link, _id, owner },
+    user,
     templateSelector,
     handleCardClick,
-    handleTrashClick
+    handleTrashClick,
+    handleToggleLike
   ) {
+    this.likes = likes;
     this.name = name;
     this.link = link;
     this.id = _id;
     this.owner = owner;
+    this.user = user;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
     this._handleTrashClick = handleTrashClick;
+    this._handleToggleLike = handleToggleLike;
   }
 
   _getTemplate() {
@@ -30,10 +35,25 @@ export class Card {
     this._element.remove();
   }
 
-  _setEventListeners() {
-    this._buttonLike = this._element.querySelector(".element__like-button");
+  checkLikes() {
+    this.isLiked = this.likes.some((item) => {
+      return item._id === this.user._id;
+    });
+  }
 
+  updateLikes(data) {
+    this.likes = data.likes;
+    this._element.querySelector(".element__like-counter").textContent =
+      data.likes.length;
+    this.checkLikes();
+    if (this.isLiked) {
+      this._buttonLike.classList.add("element__like-button_active");
+    } else this._buttonLike.classList.remove("element__like-button_active");
+  }
+
+  _setEventListeners() {
     this._buttonLike.addEventListener("click", () => {
+      this._handleToggleLike(this);
       this._toggleLike();
     });
 
@@ -49,13 +69,16 @@ export class Card {
   createCard() {
     this._element = this._getTemplate();
     this._cardTrash = this._element.querySelector(".element__delete-button");
-    if (this.owner._id != "6334eb6538383ca9a7d71089") {
+    this._buttonLike = this._element.querySelector(".element__like-button");
+    if (this.owner._id != this.user._id) {
       this._cardTrash.remove();
     }
     this._cardImage = this._element.querySelector(".element__image");
     this._cardImage.src = this.link;
     this._cardImage.alt = this.name;
     this._element.querySelector(".element__title").textContent = this.name;
+    this.checkLikes();
+    this.updateLikes(this);
     this._setEventListeners();
     return this._element;
   }
