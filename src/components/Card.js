@@ -35,17 +35,13 @@ export class Card {
     this._element.remove();
   }
 
-  checkLikes() {
-    this.isLiked = this.likes.some((item) => {
-      return item._id === this.user._id;
-    });
-  }
-
   updateLikes(data) {
     this.likes = data.likes;
     this._element.querySelector(".element__like-counter").textContent =
-      data.likes.length;
-    this.checkLikes();
+      this.likes.length;
+    this.isLiked = this.likes.some((item) => {
+      return item._id === this.user._id;
+    });
     if (this.isLiked) {
       this._buttonLike.classList.add("element__like-button_active");
     } else this._buttonLike.classList.remove("element__like-button_active");
@@ -77,7 +73,7 @@ export class Card {
     this._cardImage.src = this.link;
     this._cardImage.alt = this.name;
     this._element.querySelector(".element__title").textContent = this.name;
-    this.checkLikes();
+    //this._checkLikes();
     this.updateLikes(this);
     this._setEventListeners();
     return this._element;
