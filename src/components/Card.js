@@ -76,6 +76,7 @@ export class Card {
     //this._checkLikes();
     this.updateLikes(this);
     this._setEventListeners();
+    console.log(this.owner._id);
     return this._element;
   }
 }

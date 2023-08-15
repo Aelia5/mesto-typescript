@@ -6,6 +6,12 @@ const profileForm = popupProfile.querySelector(".popup__form");
 const addButtonNewCard = document.querySelector(".profile__add-button");
 const popupNewCard = document.querySelector(".popup_content_card");
 const placeForm = popupNewCard.querySelector(".popup__form");
+const avatarCover = document.querySelector(".profile__cover");
+const popupAvatar = document.querySelector(".popup_content_avatar");
+const avatarForm = popupAvatar.querySelector(".popup__form");
+const popupAvatarLink = popupAvatar.querySelector(
+  ".popup__item_content_avatar"
+);
 
 const config = {
   inputSelector: ".popup__item",
@@ -26,5 +32,8 @@ export {
   addButtonNewCard,
   popupNewCard,
   placeForm,
+  avatarForm,
+  avatarCover,
+  popupAvatarLink,
   config,
 };

@@ -11,6 +11,10 @@ export class UserInfo {
     };
   }
 
+  getAvatar() {
+    return this._avatarElement.src;
+  }
+
   setUserInfo({ nameValue, aboutValue }) {
     this._nameElement.textContent = nameValue;
     this._aboutElement.textContent = aboutValue;

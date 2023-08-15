@@ -32,6 +32,7 @@ export class FormValidator {
   }
 
   _hideInputError(inputElement) {
+    //console.log(`${this._errorSelectorTemplate}${inputElement.id}`);
     const errorElement = this._getErrorElement(inputElement);
     inputElement.classList.remove(this._inputErrorClass);
     errorElement.classList.remove(this._errorActiveClass);
