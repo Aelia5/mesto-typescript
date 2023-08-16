@@ -82,30 +82,4 @@ export class Api {
       return this._onResponse(res);
     });
   }
-
-  putLike(card) {
-    return fetch(`${this._baseUrl}/cards/${card.id}/likes`, {
-      method: "PUT",
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
-    });
-  }
-
-  deleteLike(card) {
-    return fetch(`${this._baseUrl}/cards/${card.id}/likes`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Ошибка: ${res.status}`);
-      }
-    });
-  }
 }

@@ -5,7 +5,7 @@ import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
-import { PopupConfirmation } from "../components/PopupConfirmation.js";
+import { PopupWithConfirmation } from "../components/PopupWithConfirmation.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { Api } from "../components/Api.js";
 
@@ -101,11 +101,11 @@ const popupFormPlace = new PopupWithForm(
 );
 popupFormPlace.setEventListeners();
 
-const popupConfirmation = new PopupConfirmation(
+const popupWithConfirmation = new PopupWithConfirmation(
   ".popup_content_confirmation",
   handleConfirmationSubmit
 );
-popupConfirmation.setEventListeners();
+popupWithConfirmation.setEventListeners();
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
@@ -184,19 +184,20 @@ function handleCardClick(card) {
 }
 
 function handleTrashClick(card) {
-  popupConfirmation.open(card);
+  popupWithConfirmation.open(card);
 }
 
 function handleConfirmationSubmit() {
-  api.deleteCard(popupConfirmation.cardToDelete.id);
-  popupConfirmation.cardToDelete.removeCard();
+  api.deleteCard(popupWithConfirmation.cardToDelete.id);
+  popupWithConfirmation.cardToDelete.removeCard();
 }
 
 function handleToggleLike(card) {
   api
     .toggleLike(card, card.isLiked)
     .then((data) => {
-      card.updateLikes(data);
+      card.likes = data.likes;
+      card.setLikes();
     })
     .catch((err) => {
       console.log(err);
