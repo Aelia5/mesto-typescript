@@ -123,6 +123,9 @@ function editProfile(newData) {
     .then((data) => {
       setProfile(data);
     })
+    .then(() => {
+      popupFormProfile.closeAfterSubmit();
+    })
     .catch((err) => {
       console.log(err);
     });
@@ -137,6 +140,9 @@ function editAvatar(newData) {
     .editAvatar(newData)
     .then((data) => {
       setAvatar(data);
+    })
+    .then(() => {
+      popupFormAvatar.closeAfterSubmit();
     })
     .catch((err) => {
       console.log(err);
@@ -163,6 +169,9 @@ function saveNewCard(newData) {
     })
     .then((newCardElement) => {
       cardsList.addItem(newCardElement, "before");
+    })
+    .then(() => {
+      popupFormPlace.closeAfterSubmit();
     })
 
     .catch((err) => {

@@ -73,10 +73,8 @@ export class Card {
     this._cardImage.src = this.link;
     this._cardImage.alt = this.name;
     this._element.querySelector(".element__title").textContent = this.name;
-    //this._checkLikes();
     this.updateLikes(this);
     this._setEventListeners();
-    console.log(this.owner._id);
     return this._element;
   }
 }
