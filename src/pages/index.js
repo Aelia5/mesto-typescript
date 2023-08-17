@@ -22,8 +22,9 @@ import {
   config,
 } from "../utils/constants.js";
 
-let cardsList;
 let user;
+
+const cardsList = new Section(createNewCard, ".elements");
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-73",
@@ -34,28 +35,12 @@ const api = new Api({
 });
 
 api
-  .getProfileData()
-  .then((data) => {
-    user = data;
+  .getAllInfo()
+  .then(([userData, cards]) => {
+    user = userData;
     setProfile(user);
     setAvatar(user);
-  })
-  .then(() => {
-    api
-      .getInitialCards()
-      .then((data) => {
-        cardsList = new Section(
-          {
-            items: data,
-            renderer: createNewCard,
-          },
-          ".elements"
-        );
-        cardsList.renderItems();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    cardsList.renderItems(cards);
   })
   .catch((err) => {
     console.log(err);
@@ -188,8 +173,14 @@ function handleTrashClick(card) {
 }
 
 function handleConfirmationSubmit() {
-  api.deleteCard(popupWithConfirmation.cardToDelete.id);
-  popupWithConfirmation.cardToDelete.removeCard();
+  api
+    .deleteCard(popupWithConfirmation.cardToDelete.id)
+    .then(() => {
+      popupWithConfirmation.cardToDelete.removeCard();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
 
 function handleToggleLike(card) {
@@ -198,6 +189,8 @@ function handleToggleLike(card) {
     .then((data) => {
       card.likes = data.likes;
       card.setLikes();
+      card.isLiked = !card.isLiked;
+      card.toggleLike();
     })
     .catch((err) => {
       console.log(err);
@@ -217,7 +210,6 @@ editButtonProfile.addEventListener("click", function () {
 });
 
 avatarCover.addEventListener("click", function () {
-  popupAvatarLink.value = userInfo.getAvatar();
   popupFormAvatar.open();
 });
 

@@ -28,6 +28,10 @@ export class Api {
     });
   }
 
+  getAllInfo() {
+    return Promise.all([this.getProfileData(), this.getInitialCards()]);
+  }
+
   editProfileData(newData) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",

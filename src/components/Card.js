@@ -31,7 +31,7 @@ export class Card {
     this._element.remove();
   }
 
-  _toggleLike() {
+  toggleLike() {
     this._buttonLike.classList.toggle("element__like-button_active");
   }
 
@@ -43,8 +43,6 @@ export class Card {
   _setEventListeners() {
     this._buttonLike.addEventListener("click", () => {
       this._handleToggleLike(this);
-      this.isLiked = !this.isLiked;
-      this._toggleLike();
     });
 
     this._cardImage.addEventListener("click", () => {
